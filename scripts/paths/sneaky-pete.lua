@@ -24,6 +24,13 @@ add_processor("/choice.php", function()
 	end
 end)
 
+add_processor("/fight.php", function()
+	if not ascensionpath("Avatar of Sneaky Pete") then return end
+	if text:contains("impressed by your charm and panache that you become fast friends") then
+		ascension["pete friend"] = monstername
+	end
+end)
+
 function sneaky_pete_maybe_update_motorcycle_status()
 	if not ascensionpath("Avatar of Sneaky Pete") then return end
 	if not locked() and level() ~= session["sneaky pete motorcycle check"] then
